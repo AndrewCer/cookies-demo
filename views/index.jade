@@ -1,0 +1,23 @@
+extends layout
+
+block content
+  if color
+    body(style="background-color: blue")
+  if userName
+    p Welcome #{userName}
+  h1 Please Log In
+  form(action='/fake-login', method='post')
+    label(for='username') User name
+    p
+      input#username(type='text', name='user_name')
+    input(type='submit', value='Log In')
+    if userName
+      form(action='/fake-logout', method='post')
+        input(type='submit', value='Log Out')
+      form(action='/color-choice', method='post')  
+        p
+        label Background Color?
+        p
+          label Blue
+          input(type='checkbox', name='blue')
+          input(type='submit', value='Change Color')
